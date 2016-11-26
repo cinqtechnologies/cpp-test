@@ -1,3 +1,10 @@
+/***********************************************************
+Desenvolvedor: Thiago Moreira
+Engenheiro Eletrônico
+thiagofrosty@hotmail.com
+Programa: Diamantes no céu
+Processo Seletivo CINQ
+************************************************************/
 #include <iostream>
 
 class Sky
@@ -21,7 +28,7 @@ private:
 	int m_stars;
 };
 
-class BlueSky : public Sky
+class BlueSky : public virtual Sky
 {
 public:
 	BlueSky(int stars = 0)
@@ -29,7 +36,7 @@ public:
 	{}
 };
 
-class NightSky : public Sky
+class NightSky : public virtual Sky
 {
 public:
 	NightSky(int stars = 0)
