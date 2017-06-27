@@ -34,22 +34,31 @@ public:
 	code (Seal, "ow ow ow")
 
 
-#define DEFINE_ANIMALS_SOUND(AnimalType, AnimalSound) class AnimalType : public Animal { virtual void makeSound() const { std::cout << AnimalSound << std:: endl; }};
-HIGH_ORDER_ANIMALS_MACRO(DEFINE_ANIMALS_SOUND)
-#undef DEFINE_ANIMALS_SOUND
+#define DEFINE_ANIMALS_CLASSES(AnimalType, AnimalSound) \
+	class AnimalType : public Animal { \
+		virtual void makeSound() const { \
+			std::cout << AnimalSound << std:: endl; \
+		} \
+	};
+
+HIGH_ORDER_ANIMALS_MACRO(DEFINE_ANIMALS_CLASSES)
+#undef DEFINE_ANIMALS_CLASSES
 
 
-std::string toLower(std::string name) { std::transform(name.begin(), name.end(), name.begin(), ::tolower); return name; }
-#define RETURN_NEW_ANIMAL_INSTANCE(AnimalType, AnimalSound) if (toLower(#AnimalType) == name) return new AnimalType;
+std::string toLower(std::string name) {
+	std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+	return name;
+}
 
+#define RETURN_NEW_ANIMAL_INSTANCE(AnimalType, _) if (toLower(#AnimalType) == name) return new AnimalType;
 // This is the function you need to change in order to instantiate the required
 // classes.
 Animal* Animal::create(const std::string& name)
 {
 	HIGH_ORDER_ANIMALS_MACRO(RETURN_NEW_ANIMAL_INSTANCE);
-	#undef RETURN_NEW_ANIMAL_INSTANCE
 	return NULL;
 }
+#undef RETURN_NEW_ANIMAL_INSTANCE
 
 void makeSound(const std::string& name)
 {
