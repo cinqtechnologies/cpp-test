@@ -7,12 +7,12 @@ public:
 		: m_stars(stars)
 	{}
 
-	int stars() const
+  int stars() const
 	{
 		return m_stars;
 	}
 
-	void stars(int n)
+  void stars(int n)
 	{
 		m_stars = n;
 	}
@@ -20,16 +20,16 @@ public:
 private:
 	int m_stars;
 };
-
-class BlueSky : public Sky
+/// avoiding diamond problem.
+class BlueSky : virtual public Sky
 {
 public:
 	BlueSky(int stars = 0)
 		: Sky(stars)
 	{}
 };
-
-class NightSky : public Sky
+/// avoiding diamond problem.
+class NightSky : virtual public Sky
 {
 public:
 	NightSky(int stars = 0)
