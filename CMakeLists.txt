@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 project(cpp-test)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set (CMAKE_CXX_STANDARD 11)
 
 function(add_challenge _CHALLENGE_NAME)
 	add_executable(${_CHALLENGE_NAME} ${_CHALLENGE_NAME}.cpp)
