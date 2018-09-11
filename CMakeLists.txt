@@ -17,7 +17,7 @@ function(add_challenge _CHALLENGE_NAME)
 		string(REGEX MATCH "([0-9]+)\\.txt$" _FILE_COUNT ${_INPUT_FILE})
 		string(REGEX MATCH "[0-9]+" _FILE_COUNT ${_FILE_COUNT})
 
-		set(_TEST_COMMAND "diff -w -Z <(cat ${_WORKING_DIRECTORY}/input${_FILE_COUNT}.txt | $<TARGET_FILE:${_CHALLENGE_NAME}>) <(cat output${_FILE_COUNT}.txt)")
+		set(_TEST_COMMAND "diff -w -Z <(cat ${_WORKING_DIRECTORY}/input${_FILE_COUNT}.txt | $<TARGET_FILE:${_CHALLENGE_NAME}>) <(cat ${_WORKING_DIRECTORY}/output${_FILE_COUNT}.txt)")
 
 		add_test(NAME ${_CHALLENGE_NAME}_test_${_FILE_COUNT}
 			COMMAND /bin/bash -c ${_TEST_COMMAND}
