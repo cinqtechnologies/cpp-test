@@ -11,8 +11,8 @@ using namespace std;
 int main(int argc, char **argv) {
   int N;
   cin >> N;
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
   while (N--) {
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     string line;
     getline(cin, line);
 
