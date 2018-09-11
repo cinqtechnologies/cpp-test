@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 project(cpp-test)
 
+find_package(Boost 1.45.0)
+include_directories(${Boost_INCLUDE_DIRS}) 
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 function(add_challenge _CHALLENGE_NAME)
