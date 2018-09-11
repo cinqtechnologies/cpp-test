@@ -1,69 +1,47 @@
 #include <iostream>
 
-class Sky
-{
+class Sky {
 public:
-	Sky(int stars = 0)
-		: m_stars(stars)
-	{}
+  Sky(int stars = 0) : m_stars(stars) {}
 
-	int stars() const
-	{
-		return m_stars;
-	}
+  int stars() const { return m_stars; }
 
-	void stars(int n)
-	{
-		m_stars = n;
-	}
+  void stars(int n) { m_stars = n; }
 
 private:
-	int m_stars;
+  int m_stars;
 };
 
-class BlueSky : public Sky
-{
+class BlueSky : virtual public Sky {
 public:
-	BlueSky(int stars = 0)
-		: Sky(stars)
-	{}
+  BlueSky(int stars = 0) : Sky(stars) {}
 };
 
-class NightSky : public Sky
-{
+class NightSky : virtual public Sky {
 public:
-	NightSky(int stars = 0)
-		: Sky(stars)
-	{}
+  NightSky(int stars = 0) : Sky(stars) {}
 };
 
-class BlueNightSky : public BlueSky, public NightSky
-{
+class BlueNightSky : public BlueSky, public NightSky {
 public:
-	BlueNightSky()
-	{}
+  BlueNightSky() {}
 };
 
-void readInput(NightSky& nightSky)
-{
-	int n = 0;
-	std::cin >> n;
+void readInput(NightSky &nightSky) {
+  int n = 0;
+  std::cin >> n;
 
-	nightSky.stars(n);
+  nightSky.stars(n);
 }
 
-int getAmountOfStars(const BlueSky& blueSky)
-{
-	return blueSky.stars();
-}
+int getAmountOfStars(const BlueSky &blueSky) { return blueSky.stars(); }
 
-int main(int argc, char** argv)
-{
-	BlueNightSky blueNightSky;
+int main(int argc, char **argv) {
+  BlueNightSky blueNightSky;
 
-	readInput(blueNightSky);
+  readInput(blueNightSky);
 
-	std::cout << getAmountOfStars(blueNightSky) << std::endl;
+  std::cout << getAmountOfStars(blueNightSky) << std::endl;
 
-	return 0;
+  return 0;
 }
