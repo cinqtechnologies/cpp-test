@@ -6,8 +6,6 @@
 
 #include <string.h>
 
-using namespace std;
-
 #define CSV_ENTRY_DELIMITER	','
 #define CSV_FIELD_MAXLENGTH	256
 
@@ -16,11 +14,11 @@ class CSVEntry
 	public:
 		CSVEntry(){};
 
-		void parse_string(const string& source)
+		void parse_string(const std::string& source)
 		{
 			char csv_entry[CSV_FIELD_MAXLENGTH + 1];
 
-			stringstream ss(source);
+			std::stringstream ss(source);
 
 			_name.clear();
 			_city.clear();
@@ -54,9 +52,9 @@ class CSVEntry
 			_age = atoi(csv_entry);
 		};
 
-		string to_string()
+		std::string to_string()
 		{
-			stringstream ss;
+			std::stringstream ss;
 
 			ss << _name << " is "
 			   << _age  << " years old "
@@ -67,10 +65,10 @@ class CSVEntry
 		};
 
 	private:
-		string _name;
-		string _city;
-		string _state;
-		string _country;
+		std::string _name;
+		std::string _city;
+		std::string _state;
+		std::string _country;
 		int _age;
 };
 
@@ -78,23 +76,23 @@ int main(int argc, char** argv)
 {
 	int queries = 0;
 
-	string entry;
+	std::string entry;
 
 	CSVEntry csv_entry;
 
-	cin >> queries;
+	std::cin >> queries;
 
 	/* Clears the stdin buffer */
-	cin.clear();
-	cin.ignore(numeric_limits<streamsize>::max(), 0x0a);
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), 0x0a);
 	
 	while (queries > 0)
 	{
-		getline(cin, entry);
+		std::getline(std::cin, entry);
 
 		csv_entry.parse_string(entry);
 
-		cout << csv_entry.to_string() << endl;
+		std::cout << csv_entry.to_string() << std::endl;
 
 		--queries;
 	}

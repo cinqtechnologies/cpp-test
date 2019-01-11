@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <string>
 
-using namespace std;
 
 /*
  * Function: is_anagram
@@ -16,13 +15,13 @@ using namespace std;
  * Returns:
  *   true if the strings are anagrams, false otherwise
  */
-bool is_anagram(const string& first, const string& second)
+bool is_anagram(const std::string& first, const std::string& second)
 {
 	/*
 	 * Not the fastest way but works with the test cases
 	 */
-	string s_one(first);
-	string s_two(second);
+	std::string s_one(first);
+	std::string s_two(second);
 
 	if (s_one.length() != s_two.length())
 	{
@@ -40,20 +39,20 @@ int main(int argc, char** argv)
 	int queries = 0;
 	bool anagram = false;
 
-	string first_string, second_string;
+	std::string first_string, second_string;
 
-	cin >> queries;
+	std::cin >> queries;
 	while (queries > 0)
 	{
-		cin >> first_string;
-		cin >> second_string;
+		std::cin >> first_string;
+		std::cin >> second_string;
 
 		anagram = is_anagram(first_string, second_string);
 
-		cout << first_string << " "
+		std::cout << first_string << " "
 		     << (anagram ? "is" : "is not") << " "
 				 << "an anagram of " << second_string
-				 << endl;
+				 << std::endl;
 		
 		--queries;
 	}

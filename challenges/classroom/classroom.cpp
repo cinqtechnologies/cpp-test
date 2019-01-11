@@ -5,9 +5,7 @@
 #include <list>
 #include <vector>
 
-using namespace std;
-
-typedef vector<string> Students;
+typedef std::vector<std::string> Students;
 
 #define CLASSROOM_QUERY_INSERT	1
 #define CLASSROOM_QUERY_FIND		2
@@ -21,7 +19,7 @@ typedef vector<string> Students;
  *   student: string with the name of the student
  *   students: vector containing the students
  */
-void insert_student(const string& student, Students& students)
+void insert_student(const std::string& student, Students& students)
 {
 	students.push_back(student);
 }
@@ -35,16 +33,17 @@ void insert_student(const string& student, Students& students)
  *   index: the index of the entry (1-based)
  *   students: vector containing the students
  */
-void find_student(int index, Students& students)
+bool find_student(int index, std::string& student, Students& students)
 {
 	size_t vector_size = students.size();
 
 	if (index <= 0 || index > vector_size)
 	{
-		return;
+		return false;
 	}
 
-	cout << students.at(index - 1) << endl;
+	student.assign(students.at(index - 1));
+	return true;
 }
 
 int main(int argc, char** argv)
@@ -54,28 +53,28 @@ int main(int argc, char** argv)
 	int queries, query;
 	int index = 0;
 
-	string student;
+	std::string student;
 
 	Students students;
 
 	/* Retrieves the query type and the number of queries */
-	cin >> operations;
+	std::cin >> operations;
 	while (operations > 0)
 	{
-		cin >> query >> queries;
+		std::cin >> query >> queries;
 
 		switch (query)
 		{
 			case CLASSROOM_QUERY_INSERT:
 			{
 				/* Clears the stdin buffer */
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), 0x0a);
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), 0x0a);
 
 				/* Reads the entries and insert the new student */
 				while (queries > 0)
 				{
-					getline(cin, student);
+					std::getline(std::cin, student);
 
 					insert_student(student, students);
 
@@ -91,9 +90,12 @@ int main(int argc, char** argv)
 			{
 				while (queries > 0)
 				{
-					cin >> index;
+					std::cin >> index;
 
-					find_student(index, students);
+					if (find_student(index, student, students))
+					{
+						std::cout << student << std::endl;
+					}
 
 					--queries;
 				}
