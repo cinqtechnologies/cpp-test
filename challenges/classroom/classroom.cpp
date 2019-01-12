@@ -10,29 +10,26 @@ typedef std::vector<std::string> Students;
 #define CLASSROOM_QUERY_INSERT	1
 #define CLASSROOM_QUERY_FIND		2
 
-/*
- * Function: insert_student
- * 
- * Inserts a student entry in the students vector
- * 
- * Params:
- *   student: string with the name of the student
- *   students: vector containing the students
- */
+// Function: insert_student
+// 
+// Inserts a student entry in the students vector
+// 
+// Params:
+//   student: string with the name of the student
+//   students: vector containing the students
+//
 void insert_student(const std::string& student, Students& students)
 {
 	students.push_back(student);
 }
 
-/*
- * Function: insert_student
- * 
- * Retrieves the student entry and index 'index'
- * 
- * Params:
- *   index: the index of the entry (1-based)
- *   students: vector containing the students
- */
+// Function: find_student
+// 
+// Retrieves the student entry and index 'index'
+// 
+// Params:
+//   index: the index of the entry (1-based)
+//   students: vector containing the students
 bool find_student(int index, std::string& student, Students& students)
 {
 	size_t vector_size = students.size();
@@ -57,7 +54,7 @@ int main(int argc, char** argv)
 
 	Students students;
 
-	/* Retrieves the query type and the number of queries */
+	// Retrieves the query type and the number of queries
 	std::cin >> operations;
 	while (operations > 0)
 	{
@@ -67,11 +64,11 @@ int main(int argc, char** argv)
 		{
 			case CLASSROOM_QUERY_INSERT:
 			{
-				/* Clears the stdin buffer */
+				// Clears the stdin buffer
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), 0x0a);
 
-				/* Reads the entries and insert the new student */
+				// Reads the entries and insert the new student
 				while (queries > 0)
 				{
 					std::getline(std::cin, student);
@@ -81,7 +78,7 @@ int main(int argc, char** argv)
 					--queries;
 				}
 
-				/* Sorts the vector alphabetically */
+				// Sorts the vector alphabetically
 				std::sort(students.begin(), students.end());
 				break;
 			}
@@ -104,13 +101,13 @@ int main(int argc, char** argv)
 
 			default:
 			{
-				/* Unknown query type */
+				// Unknown query type
 				break;
 			}
 		}
 
 		--operations;
-	} // while
+	} // while (operations > 0)
 
 	return 0;
 }

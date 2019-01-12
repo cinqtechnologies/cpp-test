@@ -6,17 +6,19 @@
 
 #include <string.h>
 
-#define CSV_ENTRY_DELIMITER	','
+#define CSV_FIELD_DELIMITER	','
 #define CSV_FIELD_MAXLENGTH	256
 
 class CSVEntry
 {
 	public:
-		CSVEntry(){};
+		CSVEntry()
+		{			
+		};
 
-		void parse_string(const std::string& source)
+		void parseString(const std::string& source)
 		{
-			char csv_entry[CSV_FIELD_MAXLENGTH + 1];
+			char csv_field[CSV_FIELD_MAXLENGTH + 1];
 
 			std::stringstream ss(source);
 
@@ -26,33 +28,33 @@ class CSVEntry
 			_country.clear();
 			_age = 0;
 
-			/* Retrieves the name */
-			memset(&(csv_entry[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
-			ss.getline(csv_entry, CSV_FIELD_MAXLENGTH, CSV_ENTRY_DELIMITER);
-			_name.assign(csv_entry);
+			// Retrieves the 'name' field
+			memset(&(csv_field[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
+			ss.getline(csv_field, CSV_FIELD_MAXLENGTH, CSV_FIELD_DELIMITER);
+			_name.assign(csv_field);
 
-			/* Retrieves the state */
-			memset(&(csv_entry[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
-			ss.getline(csv_entry, CSV_FIELD_MAXLENGTH, CSV_ENTRY_DELIMITER);
-			_state.assign(csv_entry);
+			// Retrieves the 'state' field
+			memset(&(csv_field[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
+			ss.getline(csv_field, CSV_FIELD_MAXLENGTH, CSV_FIELD_DELIMITER);
+			_state.assign(csv_field);
 
-			/* Retrieves the city */
-			memset(&(csv_entry[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
-			ss.getline(csv_entry, CSV_FIELD_MAXLENGTH, CSV_ENTRY_DELIMITER);
-			_city.assign(csv_entry);
+			// Retrieves the 'city' field
+			memset(&(csv_field[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
+			ss.getline(csv_field, CSV_FIELD_MAXLENGTH, CSV_FIELD_DELIMITER);
+			_city.assign(csv_field);
 
-			/* Retrieves the country */
-			memset(&(csv_entry[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
-			ss.getline(csv_entry, CSV_FIELD_MAXLENGTH, CSV_ENTRY_DELIMITER);
-			_country.assign(csv_entry);
+			// Retrieves the 'country' field
+			memset(&(csv_field[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
+			ss.getline(csv_field, CSV_FIELD_MAXLENGTH, CSV_FIELD_DELIMITER);
+			_country.assign(csv_field);
 
-			/* Retrieves the age */
-			memset(&(csv_entry[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
-			ss.getline(csv_entry, CSV_FIELD_MAXLENGTH, CSV_ENTRY_DELIMITER);
-			_age = atoi(csv_entry);
+			// Retrieves the 'age' field
+			memset(&(csv_field[0]), CSV_FIELD_MAXLENGTH + 1, 0x00);
+			ss.getline(csv_field, CSV_FIELD_MAXLENGTH, CSV_FIELD_DELIMITER);
+			_age = std::atoi(csv_field);
 		};
 
-		std::string to_string()
+		std::string toString() const
 		{
 			std::stringstream ss;
 
@@ -82,7 +84,7 @@ int main(int argc, char** argv)
 
 	std::cin >> queries;
 
-	/* Clears the stdin buffer */
+	// Clears the stdin buffer
 	std::cin.clear();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), 0x0a);
 	
@@ -90,9 +92,9 @@ int main(int argc, char** argv)
 	{
 		std::getline(std::cin, entry);
 
-		csv_entry.parse_string(entry);
+		csv_entry.parseString(entry);
 
-		std::cout << csv_entry.to_string() << std::endl;
+		std::cout << csv_entry.toString() << std::endl;
 
 		--queries;
 	}

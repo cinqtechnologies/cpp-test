@@ -2,24 +2,19 @@
 #include <algorithm>
 #include <string>
 
-
-/*
- * Function: is_anagram
- *
- * Checks whether the second string is an anagram of the first string
- *
- * Params:
- *   first: first string
- *   second: second string
- *
- * Returns:
- *   true if the strings are anagrams, false otherwise
- */
+// Function: is_anagram
+//
+// Checks whether the second string is an anagram of the first string
+//
+// Params:
+//   first: first string
+//   second: second string
+//
+// Returns:
+//   true if the strings are anagrams, false otherwise
 bool is_anagram(const std::string& first, const std::string& second)
 {
-	/*
-	 * Not the fastest way but works with the test cases
-	 */
+	// Not the fastest way but works with the test cases
 	std::string s_one(first);
 	std::string s_two(second);
 
