@@ -8,7 +8,6 @@
 int64_t getFibonacci(int index)
 {
 	int64_t first = 0, second = 1;
-	int numbers = index;
 
 	while (index > 1) // or index >= 2, which excludes seeds 'first' and 'second' (0 and 1)
 	{
@@ -29,7 +28,7 @@ int main(int argc, char** argv)
 
 	if (index >= 0)
 	{
-		int64_t	 fibonacci = getFibonacci(index);
+		int64_t	fibonacci = getFibonacci(index);
 		std::cout << fibonacci << std::endl;
 	}
 

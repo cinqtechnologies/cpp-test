@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 
+/*
 #define ANAGRAM_NUMBER_OF_CHARS	(26 + 10)
 
 // Function: getCharIndex
@@ -97,11 +98,24 @@ bool isAnagram(const std::string& first, const std::string& second)
 
 	return is_anagram;
 }
-/*
+*/
+
+// Function: isAnagram
+//
+// Checks whether the second string is an anagram of the first string
+//
+// Params:
+//   first: first string
+//   second: second string
+//
+// Returns:
+//   true if the strings are anagrams, false otherwise
 bool isAnagram(const std::string& first, const std::string& second)
 {
 	// Not the fastest way but works with the test cases
-	// ! Updated to a faster version
+	// INFO: Using this version since the description of the test
+	// tells us to use off-the-shelf C++ algorithms rather than
+	// implementing them from scratch.
 	std::string s_one(first);
 	std::string s_two(second);
 
@@ -115,7 +129,6 @@ bool isAnagram(const std::string& first, const std::string& second)
 
 	return (s_one.compare(s_two) == 0);
 }
-*/
 
 int main(int argc, char** argv)
 {
