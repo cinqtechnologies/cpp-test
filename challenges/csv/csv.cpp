@@ -2,9 +2,8 @@
 #include <algorithm>
 #include <sstream>
 #include <string>
+#include <cstring>
 #include <vector>
-
-#include <string.h>
 
 #define CSV_FIELD_DELIMITER	','
 #define CSV_FIELD_MAXLENGTH	256

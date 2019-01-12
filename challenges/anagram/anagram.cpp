@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string>
 
-// Function: is_anagram
+// Function: isAnagram
 //
 // Checks whether the second string is an anagram of the first string
 //
@@ -12,7 +12,7 @@
 //
 // Returns:
 //   true if the strings are anagrams, false otherwise
-bool is_anagram(const std::string& first, const std::string& second)
+bool isAnagram(const std::string& first, const std::string& second)
 {
 	// Not the fastest way but works with the test cases
 	std::string s_one(first);
@@ -32,7 +32,7 @@ bool is_anagram(const std::string& first, const std::string& second)
 int main(int argc, char** argv)
 {
 	int queries = 0;
-	bool anagram = false;
+	bool is_anagram = false;
 
 	std::string first_string, second_string;
 
@@ -42,10 +42,10 @@ int main(int argc, char** argv)
 		std::cin >> first_string;
 		std::cin >> second_string;
 
-		anagram = is_anagram(first_string, second_string);
+		is_anagram = isAnagram(first_string, second_string);
 
 		std::cout << first_string << " "
-		     << (anagram ? "is" : "is not") << " "
+		     << (is_anagram ? "is" : "is not") << " "
 				 << "an anagram of " << second_string
 				 << std::endl;
 		

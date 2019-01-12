@@ -1,13 +1,13 @@
 #include <iostream>
 
 
-// Function: get_fibonacci
+// Function: getFibonacci
 //
 // Returns the n-th fibonacci number defined at 0-based 'index'
 // 
-long int get_fibonacci(int index)
+int64_t getFibonacci(int index)
 {
-	long int first = 0, second = 1;
+	int64_t first = 0, second = 1;
 	int numbers = index;
 
 	while (index > 1) // or index >= 2, which excludes seeds 'first' and 'second' (0 and 1)
@@ -29,7 +29,8 @@ int main(int argc, char** argv)
 
 	if (index >= 0)
 	{
-		std::cout << get_fibonacci(index) << std::endl;
+		int64_t	 fibonacci = getFibonacci(index);
+		std::cout << fibonacci << std::endl;
 	}
 
 	return 0;

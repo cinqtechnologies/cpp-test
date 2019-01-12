@@ -10,7 +10,7 @@ typedef std::vector<std::string> Students;
 #define CLASSROOM_QUERY_INSERT	1
 #define CLASSROOM_QUERY_FIND		2
 
-// Function: insert_student
+// Function: insertStudent
 // 
 // Inserts a student entry in the students vector
 // 
@@ -18,19 +18,19 @@ typedef std::vector<std::string> Students;
 //   student: string with the name of the student
 //   students: vector containing the students
 //
-void insert_student(const std::string& student, Students& students)
+void insertStudent(const std::string& student, Students& students)
 {
 	students.push_back(student);
 }
 
-// Function: find_student
+// Function: findStudent
 // 
 // Retrieves the student entry and index 'index'
 // 
 // Params:
 //   index: the index of the entry (1-based)
 //   students: vector containing the students
-bool find_student(int index, std::string& student, Students& students)
+bool findStudent(int index, std::string& student, Students& students)
 {
 	size_t vector_size = students.size();
 
@@ -73,7 +73,7 @@ int main(int argc, char** argv)
 				{
 					std::getline(std::cin, student);
 
-					insert_student(student, students);
+					insertStudent(student, students);
 
 					--queries;
 				}
@@ -89,7 +89,7 @@ int main(int argc, char** argv)
 				{
 					std::cin >> index;
 
-					if (find_student(index, student, students))
+					if (findStudent(index, student, students))
 					{
 						std::cout << student << std::endl;
 					}
