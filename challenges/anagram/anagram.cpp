@@ -101,6 +101,7 @@ bool isAnagram(const std::string& first, const std::string& second)
 bool isAnagram(const std::string& first, const std::string& second)
 {
 	// Not the fastest way but works with the test cases
+	// ! Updated to a faster version
 	std::string s_one(first);
 	std::string s_two(second);
 
