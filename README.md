@@ -60,7 +60,3 @@ $ ctest -R <test> -V
 ```
 
 CTest will show you which one of the test cases failed. You are free to look at the tests cases to better understand what is required to make it pass. Don't forget to build the code before running the tests.
-
-## Additional notes
-
-Everything here was developed and tested in a unix-like environment. We didn't ensure it would run on Windows platforms, but if you are feeling adventurous, there is nothing preventing you to do so (but you will be on your own).
