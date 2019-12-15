@@ -5,8 +5,14 @@ using namespace std;
 
 unsigned long int fibonacci(int n){
 
-		long double phi = (1 + sqrt(5)) / 2;
-		return round(pow(phi, n) / sqrt(5));
+		long double fib[n];
+		fib[0] = 0; fib[1] = 1;
+
+		for(int i=2; i <= n;i++){
+				fib[i] = fib[i-1] + fib[i-2];
+		}
+
+		return round(fib[n]);
 }
 
 int main(int argc, char* argv[])
@@ -14,5 +20,6 @@ int main(int argc, char* argv[])
 		int n;
 		cin >> n;
 		cout << fibonacci(n) << endl;
-		return fibonacci(n);
+
+		return 0;
 }
