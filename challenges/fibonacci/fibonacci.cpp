@@ -1,6 +1,18 @@
 #include <iostream>
+#include <cmath>
 
-int main(int argc, char** argv)
+using namespace std;
+
+unsigned long int fibonacci(int n){
+
+		long double phi = (1 + sqrt(5)) / 2;
+		return round(pow(phi, n) / sqrt(5));
+}
+
+int main(int argc, char* argv[])
 {
-	return 0;
+		int n;
+		cin >> n;
+		cout << fibonacci(n) << endl;
+		return fibonacci(n);
 }
