@@ -21,7 +21,7 @@ private:
 	int m_stars;
 };
 
-class BlueSky : public Sky
+class BlueSky : public virtual Sky
 {
 public:
 	BlueSky(int stars = 0)
@@ -29,7 +29,7 @@ public:
 	{}
 };
 
-class NightSky : public Sky
+class NightSky : public virtual Sky
 {
 public:
 	NightSky(int stars = 0)
@@ -37,6 +37,7 @@ public:
 	{}
 };
 
+// Don`t change
 class BlueNightSky : public BlueSky, public NightSky
 {
 public:
@@ -44,6 +45,7 @@ public:
 	{}
 };
 
+// Don`t change
 void readInput(NightSky& nightSky)
 {
 	int n = 0;
@@ -52,11 +54,13 @@ void readInput(NightSky& nightSky)
 	nightSky.stars(n);
 }
 
+// Don`t change
 int getAmountOfStars(const BlueSky& blueSky)
 {
 	return blueSky.stars();
 }
 
+// Don`t change
 int main(int argc, char** argv)
 {
 	BlueNightSky blueNightSky;

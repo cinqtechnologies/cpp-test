@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 class Animal
 {
 public:
@@ -19,12 +21,124 @@ public:
 };
 
 // Write your classes here
+class Dog : public Animal{
+
+public:
+
+		Dog(): Animal(){
+
+		}
+
+		virtual void makeSound()const{
+				cout << "woof" << endl;
+		}
+
+};
+
+class Cow : public Animal{
+
+public:
+
+		Cow(): Animal(){
+
+		}
+		virtual void makeSound()const{
+				cout << "moo" << endl;
+		}
+
+};
+
+class Cat : public Animal{
+
+public:
+
+		Cat(): Animal(){
+
+		}
+		virtual void makeSound()const{
+				cout << "meow" << endl;
+		}
+
+};
+
+class Duck : public Animal{
+
+public:
+
+		Duck(): Animal(){
+
+		}
+		virtual void makeSound()const{
+				cout << "quack" << endl;
+		}
+
+};
+
+class Fish : public Animal{
+
+public:
+
+		Fish(): Animal(){
+
+		}
+		virtual void makeSound()const{
+				cout << "blub" << endl;
+		}
+
+};
+
+class Bird : public Animal{
+
+public:
+
+		Bird(): Animal(){
+
+		}
+		virtual void makeSound()const{
+				cout << "tweet" << endl;
+		}
+
+};
+
+class Frog : public Animal{
+
+public:
+
+		Frog(): Animal(){
+
+		}
+		virtual void makeSound()const{
+				cout << "croak" << endl;
+		}
+
+};
 
 // This is the function you need to change in order to instantiate the required
 // classes.
 Animal* Animal::create(const std::string& name)
 {
-	return 0;
+	if(name == "dog")
+			return new Dog();
+
+	if(name == "cow")
+			return new Cow();
+
+	if(name == "cat")
+			return new Cat();
+
+	if(name == "duck")
+			return new Duck();
+
+	if(name == "fish")
+			return new Fish();
+
+	if(name == "bird")
+			return new Bird();
+
+	if(name == "frog")
+			return new Frog();
+
+	return NULL;
 }
 
 void makeSound(const std::string& name)
@@ -32,10 +146,15 @@ void makeSound(const std::string& name)
 	// Create our instance
 	Animal* animal = Animal::create(name);
 
-	animal->makeSound();
+	if(animal != NULL){
+		animal->makeSound();
 
-	// Destroy our instance
-	Animal::destroy(animal);
+		// Destroy our instance
+		Animal::destroy(animal);
+	}
+	else{
+			cout << name << " is not an animal" << endl;
+	}
 }
 
 int main(int argc, char** argv)
