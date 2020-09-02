@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 project(cpp-test)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 function(add_challenge _CHALLENGE_NAME)
@@ -22,6 +25,12 @@ function(add_challenge _CHALLENGE_NAME)
 			WORKING_DIRECTORY ${_WORKING_DIRECTORY})
 
 	endforeach()
+endfunction()
+
+add_subdirectory(common)
+
+function(link_common_libs _CHALLENGE_NAME)
+	target_link_libraries(${_CHALLENGE_NAME} cpp-test-common)
 endfunction()
 
 enable_testing()

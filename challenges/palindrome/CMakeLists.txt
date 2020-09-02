@@ -1,1 +1,2 @@
 add_challenge(palindrome)
+link_common_libs(palindrome)
