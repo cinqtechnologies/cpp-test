@@ -1,1 +1,2 @@
 add_challenge(stairway_to_heaven)
+link_common_libs(stairway_to_heaven)
