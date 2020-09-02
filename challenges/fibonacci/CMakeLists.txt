@@ -1,1 +1,2 @@
 add_challenge(fibonacci)
+link_common_libs(fibonacci)
