@@ -1,1 +1,2 @@
 add_challenge(functional_anarchy)
+link_common_libs(functional_anarchy)
