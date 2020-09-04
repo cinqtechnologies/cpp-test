@@ -137,6 +137,7 @@ Animal* Animal::create(const std::string& name)
 {
     const auto it = registry.find(name);
     if (it == registry.end()) {
+        std::cout << name << " is not an animal" << std::endl;
         return nullptr;
     }
     return it->second();
