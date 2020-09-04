@@ -38,17 +38,4 @@ namespace cpptest::solver {
         void handleSolution(std::istream& in, std::ostream& out, const Solution &solution) const noexcept override;
 
     };
-
-//    class basic {
-//
-//    };
-//    void basic(arg_type (&solve) (const arg_type&)) {
-//        int N;
-//        std::cin >> N;
-//        for (int i = 0; i < N; i++) {
-//            arg_type input;
-//            std::cin >> input;
-//            std::cout << solve(input) << std::endl;
-//        }
-//    }
 }
