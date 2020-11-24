@@ -4,7 +4,7 @@ project(cpp-test)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 function(add_challenge _CHALLENGE_NAME)
-	add_executable(${_CHALLENGE_NAME} ${_CHALLENGE_NAME}.cpp)
+	add_executable(${_CHALLENGE_NAME} ${_CHALLENGE_NAME}.cpp ../Tester.cpp)
 
 	set(_WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
