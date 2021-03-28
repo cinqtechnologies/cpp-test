@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.12)
 project(cpp-test)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
@@ -8,7 +8,7 @@ function(add_challenge _CHALLENGE_NAME)
 
 	set(_WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
-	file(GLOB_RECURSE _INPUT_FILES ${_WORKING_DIRECTORY}/ input*.txt)
+	file(GLOB_RECURSE _INPUT_FILES ${_WORKING_DIRECTORY}/input*.txt)
 
 	foreach(_INPUT_FILE ${_INPUT_FILES})
 		set(_FILE_COUNT "")
